@@ -238,6 +238,7 @@ type Iterator interface {
 
 // Update contains information about a file
 type Update struct {
+	ID       string
 	Path     Path
 	Value    []byte
 	IsPolicy bool

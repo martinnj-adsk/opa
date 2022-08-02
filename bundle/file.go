@@ -316,6 +316,7 @@ func (it *iterator) Next() (*storage.Update, error) {
 	}
 
 	return &storage.Update{
+		ID:       f.name,
 		Path:     f.path,
 		Value:    f.raw,
 		IsPolicy: isPolicy,

@@ -114,7 +114,7 @@ func (db *store) Truncate(ctx context.Context, txn storage.Transaction, params s
 		}
 
 		if update.IsPolicy {
-			err = underlying.UpsertPolicy(update.Path.String(), update.Value)
+			err = underlying.UpsertPolicy(update.ID, update.Value)
 			if err != nil {
 				return err
 			}
@@ -126,7 +126,7 @@ func (db *store) Truncate(ctx context.Context, txn storage.Transaction, params s
 			}
 
 			var key []string
-			dirpath := strings.TrimLeft(update.Path.String(), "/")
+			dirpath := strings.TrimLeft(update.ID, "/")
 			if len(dirpath) > 0 {
 				key = strings.Split(dirpath, "/")
 			}
